@@ -1,11 +1,20 @@
 import React from 'react';
-import './css/guess-form.css';
+import {connect} from 'react-redux';
+import {addGuess} from '../actions';
 
-export default function GuessForm() {
-    return (
-        <form>
-            <input type="text" name="guess" placeholder="" />
-            <input type="submit" value="Guess" />
-        </form>
-    );
+import '../css/guess-form.css';
+
+class GuessForm extends React.Component {
+   render() {
+        return (
+            <form onSubmit={event => event.preventDefault()}>
+                <input ref={input => (this.userGuess = input)} type="text" id="userGuess" maxLength="3" autoComplete="off" required />
+                <button type="button" onClick={() => this.props.dispatch(addGuess(this.userGuess.value))}>Guess</button>
+            </form>
+        );
+   }
+    
+    
 }
+
+export default connect()(GuessForm);

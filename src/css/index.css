@@ -26,3 +26,11 @@ ul li {
 a {
   text-decoration: none;
 }
+
+button {
+  width: 40vw;
+  height: 10vw;
+  background-color: transparent;
+  border: 1px solid black;
+  font-size: 2vw;
+}
